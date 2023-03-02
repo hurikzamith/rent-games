@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_action :set_board, only: [ :show, :edit, :destroy, :update ]
+  before_action :set_board, only: %i[update show edit destroy]
 
   def index
     @boards = Board.all
@@ -47,5 +47,4 @@ class BoardsController < ApplicationController
   def set_board
     @board = Board.find(params[:id])
   end
-
 end
