@@ -29,8 +29,8 @@ GAMES_URL = JSON.parse(URI.parse(url_board).open.read)
 CATEGORY_URL = JSON.parse(URI.parse(url_category).open.read)['categories']
 
 def find_category(category_id)
-  category = CATEGORY_URL.find do |f|
-    f['id'] == category_id
+  category = CATEGORY_URL.find do |categ|
+    categ['id'] == category_id
   end
   category['name']
 end
@@ -40,17 +40,20 @@ def find_sample_board
 end
 
 puts "Creating boards..."
-
-10.times do
-  sample_game = find_sample_board
-  Board.create(
-    title: sample_game['name'],
-    category: find_category(sample_game['categories'].sample['id']),
-    rating: rand(0..5),
-    price: sample_game['price'],
-    player_number: sample_game['players']
-    # sample_game['thumb_url'] -> Imagem do game, fazer em cloudinary
-  )
+User.all.each do |created_user|
+  boards_per_user = rand(0..3)
+  boards_per_user.times do |_number_board|
+    sample_game = find_sample_board
+    board = Board.new(
+      title: sample_game['name'],
+      category: find_category(sample_game['categories'].sample['id']),
+      rating: rand(0..5),
+      price: sample_game['price'],
+      player_number: sample_game['players']
+      # sample_game['thumb_url'] -> Imagem do game, fazer em cloudinary
+    )
+    board.user = created_user
+    board.save!
+  end
 end
-
 puts "Created #{Board.count} board games"
