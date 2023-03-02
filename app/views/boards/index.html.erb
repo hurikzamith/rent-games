@@ -2,3 +2,8 @@
 <p>olá games </p>
 
 <%= link_to "new Board", new_board_path, class: "btn btn-flat" %>
+<ol>
+  <% @boards.each do |board| %>
+    <li><%= link_to "#{board.title}", board_path, class: "btn btn-flat"%></li>
+  <% end %>
+</ol>
