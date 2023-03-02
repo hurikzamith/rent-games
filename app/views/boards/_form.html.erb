@@ -1,0 +1,17 @@
+
+<%= simple_form_for(@board) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="board-inputs">
+    <%= f.input :title %>
+    <%= f.input :price %>
+    <%= f.input :rating %>
+    <%= f.input :category %>
+    <%= f.input :player_number %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>
