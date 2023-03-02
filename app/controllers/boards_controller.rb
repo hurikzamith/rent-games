@@ -1,4 +1,6 @@
 class BoardsController < ApplicationController
+  before_action :set_board, only: [:create, :show, :edit, :destroy]
+
   def index
     @boards = Board.all
   end
@@ -18,7 +20,6 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.find(params[:id])
   end
 
   def edit
@@ -30,5 +31,11 @@ class BoardsController < ApplicationController
   def destroy
   end
 
+  private
 
+  def set_board
+    @board = Board.find(params[:id])
+  end
+
+  
 end

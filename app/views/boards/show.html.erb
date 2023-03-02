@@ -1,8 +1,22 @@
-<h1>Show board</h1>
-<h2><%= @board.title %></h2>
-<p><%="Category:#{@board.category}"%></p>
-<p><%="Preço:#{@board.price}"%></p>
-<p><%="Rating:#{@board.rating}"%></p>
-<p><%="PLayers Number:#{@board.player_number}"%></p>
+<div>
+  <h1>Show board</h1>
+  <h2><%= @board.title %></h2>
+  <p><%="Category:#{@board.category}"%></p>
+  <p><%="Preço:#{@board.price}"%></p>
+  <p><%="Rating:#{@board.rating}"%></p>
+  <p><%="Players Number:#{@board.player_number}"%></p>
+</div>
+
+<div>
+<h2>Edit Game</h2>
+</div>
 
 
+<div>
+<h2>Delete Game</h2>
+</div>
+
+
+<div>
+<h2><%= link_to "Home", root_path, class: "btn btn-flat" %></h2>
+</div>
