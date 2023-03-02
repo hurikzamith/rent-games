@@ -29,6 +29,9 @@ class BoardsController < ApplicationController
   end
 
   def destroy
+    @board = Board.find(params[:id])
+    @board.destroy
+    redirect_to board_path, status: :see_other
   end
 
   private
@@ -40,6 +43,5 @@ class BoardsController < ApplicationController
   def set_board
     @board = Board.find(params[:id])
   end
-
 
 end
