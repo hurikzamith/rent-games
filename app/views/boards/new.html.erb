@@ -1,2 +1,9 @@
-<h1>Form</h1>
- <%= link_to "Create Board", boards_path, class: "btn btn-flat" %>
+<h1>Put your game to rent</h1>
+
+<%= render "form", board: @board %>
+
+<br>
+
+<div>
+  <%= link_to "Back to boards", boards_path, class: "btn btn-dark" %>
+</div>

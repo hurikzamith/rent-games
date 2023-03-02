@@ -8,8 +8,8 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.new(params[:id])
-    @board.save
+    @board = Board.new(board_params)
+    @board.user = current_user
     if @board.save
       redirect_to boards_path
     else
@@ -29,5 +29,10 @@ class BoardsController < ApplicationController
   def destroy
   end
 
+  private
+
+  def board_params
+    params.require(:board).permit(:title, :price, :rating, :category, :player_number)
+  end
 
 end
