@@ -7,6 +7,4 @@ class RentsController < ApplicationController
     @rent = Rent.new(params[:board_id])
     @rent.save!
   end
-
-  
 end

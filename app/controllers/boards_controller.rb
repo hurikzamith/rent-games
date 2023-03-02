@@ -1,7 +1,6 @@
 class BoardsController < ApplicationController
   def index
     @boards = Board.all
-    raise
   end
 
   def new
