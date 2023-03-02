@@ -1,10 +1,10 @@
 <h1> Index Boards </h1>
 <p>olá games </p>
 
-<%= link_to "new Board", new_board_path, class: "btn btn-flat" %>
+<%= link_to "new Board", new_board_path, class: "btn btn-primary" %>
 
 <ol>
   <% @boards.each do |board| %>
-    <li><%= link_to "#{board.title}", board_path(board), class: "btn btn-flat"%></li>
+    <li><%= link_to "#{board.title}", board_path(board), class: "btn btn-dark"%></li>
   <% end %>
 </ol>
