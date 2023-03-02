@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_action :set_board, only: [:create, :show, :edit, :destroy]
+  before_action :set_board, only: [:show, :edit, :destroy]
 
   def index
     @boards = Board.all
