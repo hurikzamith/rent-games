@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_action :set_board, only: [:show, :edit, :destroy]
+  before_action :set_board, only: [ :show, :edit, :destroy, :update ]
 
   def index
     @boards = Board.all
@@ -26,6 +26,11 @@ class BoardsController < ApplicationController
   end
 
   def update
+    if @board.update(board_params)
+      redirect_to @board, notice: "#{@board.title} was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy

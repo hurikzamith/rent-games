@@ -1,14 +1,15 @@
 <div>
   <h1>Show board</h1>
   <h2><%= @board.title %></h2>
-  <p><%="Category:#{@board.category}"%></p>
-  <p><%="Preço:#{@board.price}"%></p>
-  <p><%="Rating:#{@board.rating}/5"%></p>
-  <p><%="Players Number:#{@board.player_number}"%></p>
+  <p><%="Category: #{@board.category}"%></p>
+  <p><%="Preço: #{@board.price}"%></p>
+  <p><%="Rating: #{@board.rating}/5"%></p>
+  <p><%="Players Number: #{@board.player_number}"%></p>
+  <p><%="Owner: #{@board.user.first_name}"%></p>
 </div>
 
 <div>
-<h2>Edit Game</h2>
+<h2><%= link_to "Edit Game", edit_board_path(@board), class: "btn btn-flat" %></h2>
 </div>
 
 
