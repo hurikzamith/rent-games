@@ -7,7 +7,20 @@ url_category = 'https://api.boardgameatlas.com/api/game/categories?pretty=true&c
 puts "Starting seed..."
 
 puts "Cleaning db..."
-Board.destroy_all
+User.destroy_all
+
+puts 'Creating fake users...'
+
+4.times do
+  User.create!(
+    first_name: Faker::Name.name,
+    last_name: Faker::Name.first_name,
+    email: Faker::Internet.email,
+    address: Faker::Address.street_address,
+    password: Faker::Internet.password
+  )
+end
+puts "#{User.count} Users created!"
 
 puts 'Open and parsing URLs...'
 
