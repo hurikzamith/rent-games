@@ -2,7 +2,11 @@ class BoardsController < ApplicationController
   before_action :set_board, only: %i[update show edit destroy]
 
   def index
-    @boards = Board.all
+    if params[:param].nil?
+      @boards = Board.all
+    else
+      @boards = Board.where(category: params[:param])
+    end
   end
 
   def new

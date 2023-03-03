@@ -1,0 +1,21 @@
+.menu {
+  margin: 15px;
+}
+
+
+.myMenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.myMenu li a{
+  padding: 12px;
+  text-decoration: none;
+  color: black;
+  display: block
+}
+
+ .myMenu li a:hover {
+    background-color: #eee;
+ }

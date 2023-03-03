@@ -1,12 +1,30 @@
-<h1> Index Boards </h1>
-<p>olá games </p>
+<%= render 'shared/banner' %>
 
-<%= link_to "new Board", new_board_path, class: "btn btn-primary" %>
+  <div class="row">
 
-<ol>
-  <% @boards.each do |board| %>
-    <li><%= link_to "#{board.title}", board_path(board), class: "btn btn-dark"%>
-      <%= cl_image_tag board.photo.key, width: 150 %>
-    </li>
-  <% end %>
-</ol>
+    <div class="col-sm-2">
+      <div class='menu'>
+        <h2>Categories</h2>
+        <ul class='myMenu'>
+          <% boards = @boards.map { |b| b.category}.uniq %>
+          <% boards.each do |board| %>
+            <li> <%= link_to board, boards_path(param: board) %> </li>
+          <% end %>
+        </ul>
+        <%= link_to "new Board", new_board_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+
+    <div class="col-sm-10">
+      <% @boards.each do |board| %>
+        <div class="card-product">
+          <%= cl_image_tag board.photo.key, class: 'card_img' %>
+          <div class="card-product-infos">
+            <h2><%= link_to "#{board.title}", board_path(board)%></h2>
+            <p>Product description with <strong>relevant info</strong> only.</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
