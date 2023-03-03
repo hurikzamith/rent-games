@@ -5,6 +5,7 @@ ruby "3.1.2"
 
 # NOVA GEM PARA CALENDARIO
 gem "simple_calendar", "~> 2.4"
+gem 'flatpickr'
 #
 gem "devise"
 
