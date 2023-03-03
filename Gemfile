@@ -3,8 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+# NOVA GEM PARA CALENDARIO
+gem "simple_calendar", "~> 2.4"
+#
 gem "devise"
 
+#
 gem 'faker'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

@@ -1,4 +1,17 @@
 <h1>Rents#new</h1>
 <p>Find me in app/views/rents/new.html.erb</p>
 
+    <!--Add board and user info! -->
+  <div>
+    <h3><%= @board.title %> </h3>
+    <%= cl_image_tag @board.photo.key, width: 150 %>
+  <p><%="Category: #{@board.category}"%></p>
+  <p><%="Preço: #{@board.price}"%></p>
+  <p><%="Rating: #{@board.rating}/5"%></p>
+  <p><%="Players Number: #{@board.player_number}"%></p>
+  <p><%="Owner: #{@board.user.first_name}"%></p>
+    <p></p>
+  </div>
+
+
 <%= render "form_rent", rent: @rent, board: @board %>
