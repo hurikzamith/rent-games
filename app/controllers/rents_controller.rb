@@ -5,7 +5,28 @@ class RentsController < ApplicationController
   end
 
   def create
-    @rent = Rent.new(params[:board_id])
-    @rent.save!
+    @board = Board.find(params[:board_id])
+    @rent = Rent.new(rent_params)
+    @rent.user = current_user
+    @rent.board = @board
+    @rent.save
+    if @rent.save
+      redirect_to board_rent_path(@board, @rent)
+      # TODO
+      # CONSERTAR ROTA PARA SHOW DE RENTS DO CURRENT USER!
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def show
+    # TODO criar uma view que mostrará as rents do nosso user!
+    @user = current_user
+  end
+
+  private
+
+  def rent_params
+    params.require(:rent).permit(:start_date, :end_date)
   end
 end
