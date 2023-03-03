@@ -21,7 +21,10 @@
           <%= cl_image_tag board.photo.key, class: 'card_img' %>
           <div class="card-product-infos">
             <h2><%= link_to "#{board.title}", board_path(board)%></h2>
-            <p>Product description with <strong>relevant info</strong> only.</p>
+            <p>Rating: <strong><%=board.rating%></strong></p>
+            <p>Category: <strong><%=board.category%></strong></p>
+            <p>Owner: <strong><%=board.user.first_name%></strong></p>
+            <p>Number of players: <strong><%=board.player_number%></strong></p>
           </div>
         </div>
       <% end %>
