@@ -11,7 +11,7 @@ User.destroy_all
 
 puts 'Creating fake users...'
 
-4.times do
+10.times do
   User.create!(
     first_name: Faker::Name.name,
     last_name: Faker::Name.first_name,
@@ -47,7 +47,7 @@ tes_cate = []
 
 puts "Creating boards..."
 User.all.each do |created_user|
-  boards_per_user = rand(0..3)
+  boards_per_user = rand(2..5)
   boards_per_user.times do |_number_board|
     sample_game = find_sample_board
     board = Board.new(
