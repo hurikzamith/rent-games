@@ -1,6 +1,8 @@
 <h1>Show My Rents</h1>
   <% @user.rents.each do |rent| %>
     <div>
+      <h3><em><%= rent.board.title %></em></h3>
+       <p><em><%= "R$:#{rent.board.price}" %></em></p>
       <p>Start Date: <%= rent.start_date %></p>
       <p>End Date: <%= rent.end_date %></p>
     </div>

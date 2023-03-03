@@ -20,7 +20,6 @@ class RentsController < ApplicationController
   end
 
   def show
-    # TODO criar uma view que mostrará as rents do nosso user!
     @user = current_user
   end
 

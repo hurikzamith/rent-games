@@ -1,9 +1,10 @@
 class Rent < ApplicationRecord
-  belongs_to :user, counter_cache: true
+  belongs_to :user
   belongs_to :board
 
   validates :start_date, :end_date, presence: true
   validate :end_date_after_start_date
+  # TODO: Add availability validator!
 
   private
 
