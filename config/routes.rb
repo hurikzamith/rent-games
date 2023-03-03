@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "boards#index"
 
-  
+  get "profile", to: "pages#profile"
+
   resources :boards do
     resources :rents, only: %i[ new create show ]
   end
