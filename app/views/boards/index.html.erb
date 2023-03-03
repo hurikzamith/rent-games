@@ -5,6 +5,8 @@
 
 <ol>
   <% @boards.each do |board| %>
-    <li><%= link_to "#{board.title}", board_path(board), class: "btn btn-dark"%></li>
+    <li><%= link_to "#{board.title}", board_path(board), class: "btn btn-dark"%>
+      <%= cl_image_tag board.photo.key, width: 150 %>
+    </li>
   <% end %>
 </ol>

@@ -17,7 +17,7 @@ puts 'Creating fake users...'
     last_name: Faker::Name.first_name,
     email: Faker::Internet.email,
     address: Faker::Address.street_address,
-    password: Faker::Internet.password
+    password: 123123
   )
 end
 puts "#{User.count} Users created!"
@@ -32,12 +32,18 @@ def find_category(category_id)
   category = CATEGORY_URL.find do |categ|
     categ['id'] == category_id
   end
-  category['name']
+  if category['name'].nil?
+    return "Others"
+  else
+    return category['name']
+  end
 end
 
 def find_sample_board
   GAMES_URL['games'].sample
 end
+
+tes_cate = []
 
 puts "Creating boards..."
 User.all.each do |created_user|
@@ -50,10 +56,14 @@ User.all.each do |created_user|
       rating: rand(0..5),
       price: sample_game['price'],
       player_number: sample_game['players']
-      # sample_game['thumb_url'] -> Imagem do game, fazer em cloudinary
     )
+    tes_cate << sample_game['categories'].sample['id']
+    file = URI.parse(sample_game['thumb_url']).open
+    board.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
     board.user = created_user
     board.save!
   end
 end
 puts "Created #{Board.count} board games"
+
+p tes_cate

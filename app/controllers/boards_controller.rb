@@ -41,7 +41,7 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:title, :price, :rating, :category, :player_number)
+    params.require(:board).permit(:title, :price, :rating, :category, :player_number, :photo)
   end
 
   def set_board
