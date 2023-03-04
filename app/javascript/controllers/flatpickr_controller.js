@@ -12,6 +12,7 @@ export default class extends Controller {
       altInput: true
     })
     flatpickr(this.endTimeTarget, {
+      altInput: true
     })
   }
 }

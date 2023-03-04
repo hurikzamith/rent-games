@@ -11,6 +11,14 @@ User.destroy_all
 
 puts 'Creating fake users...'
 
+  User.create!(
+    first_name: "Rent",
+    last_name: "Games",
+    email: "rentgames@gmail.com",
+    address: "rua rentgames",
+    password: 123123
+  )
+
 10.times do
   User.create!(
     first_name: Faker::Name.name,
