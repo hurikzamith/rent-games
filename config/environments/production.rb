@@ -3,6 +3,10 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # ATEMPT TO MAKE HEROKU WORK BY: HURIK !!!!!!!!!!!!
+  config.active_storage.service = :cloudinary
+  # ATEMPT TO MAKE HEROKU WORK BY: HURIK !!!!!!!!!!!!
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
