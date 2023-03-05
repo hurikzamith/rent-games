@@ -11,6 +11,10 @@ class BoardsController < ApplicationController
 
   def new
     @board = Board.new
+    @boards = Board.all
+    @categories = @boards.each do |board|
+      board
+    end
   end
 
   def create

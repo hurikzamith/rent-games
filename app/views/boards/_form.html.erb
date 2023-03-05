@@ -7,7 +7,8 @@
     <%= f.input :title %>
     <%= f.input :price %>
     <%= f.input :rating %>
-    <%= f.input :category, :collection => %w[Environmental Medieval CardGame Abstract Dice Economic AlternateHistory ResourceManagement Steampunk Ancient Adventure Medical Solo/Solitarie FamilyGame Mythology Animals Cooperative CityBuilding] %>
+    <%= boards = @boards.map { |b| b.category }.uniq %>
+    <%= f.input :category, :collection => boards %>
     <%= f.input :player_number %>
     <%= f.input :photo, as: :file %>
   </div>
