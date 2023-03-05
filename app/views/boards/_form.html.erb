@@ -7,8 +7,8 @@
     <%= f.input :title %>
     <%= f.input :price %>
     <%= f.input :rating %>
-    <%= boards = @boards.map { |b| b.category }.uniq %>
-    <%= f.input :category, :collection => boards %>
+    <% boards = @boards.map { |b| b.category }.uniq.sort %>
+    <%= f.input :category, collection: boards, prompt: 'Select a category' %>
     <%= f.input :player_number %>
     <%= f.input :photo, as: :file %>
   </div>
