@@ -12,7 +12,6 @@ class BoardsController < ApplicationController
   def new
     @board = Board.new
     @boards = Board.all
-    end
   end
 
   def create
