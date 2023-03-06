@@ -10,8 +10,14 @@
               <li> <%= link_to board, root_path(param: board) %> </li>
             <% end %>
           </ul>
-          <%= link_to "Clean filter", root_path, class: "btn btn-primary" %>
-          <%= link_to "New board", new_board_path, class: "btn btn-primary mt-5" if current_user.present? %>
+          <div class="flexbox">
+            <div>
+              <%= link_to "Clean filter", root_path, class: "btn btn-primary" %>
+            </div>
+            <div>
+              <%= link_to "New board", new_board_path, class: "btn btn-primary mt-5" if current_user.present? %>
+            </div>
+          </div>
         </div>
       </div>
 
