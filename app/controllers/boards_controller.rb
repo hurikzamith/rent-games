@@ -22,6 +22,7 @@ class BoardsController < ApplicationController
     if @board.save
       redirect_to root_path
     else
+      @boards = Board.all
       render :new, status: :unprocessable_entity
     end
   end
