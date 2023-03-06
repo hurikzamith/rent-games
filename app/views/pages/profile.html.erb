@@ -54,17 +54,19 @@
 <h3>My Board Games - Rented Out</h3>
 
 <% @boards.each do |board| %>
-  <div class="card-product">
-    <% board.rents.each do |board_rent| %>
-    <%= cl_image_tag board_rent.board.photo.key, class: 'card_img' %>
-    <div class="card-product-infos">
-      <p>Title: <%= board_rent.board.title %> </p>
-      <p>Start Date: <%= board_rent.start_date %></p>
-      <p>End Date: <%= board_rent.end_date %></p>
-      <p>Rented out by: <%= board_rent.user.first_name %></p>
+  <% if board.rents.exists? %>
+    <div class="card-product">
+      <% board.rents.each do |board_rent| %>
+      <%= cl_image_tag board_rent.board.photo.key, class: 'card_img' %>
+      <div class="card-product-infos">
+        <p>Title: <%= board_rent.board.title %> </p>
+        <p>Start Date: <%= board_rent.start_date %></p>
+        <p>End Date: <%= board_rent.end_date %></p>
+        <p>Rented out by: <%= board_rent.user.first_name %></p>
+      </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
+  <% end %>
 <% end %>
 
 <h3>Board Games I've Rented</h3>
