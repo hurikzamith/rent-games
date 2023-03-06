@@ -1,6 +1,22 @@
 .user_forms {
-  width: 500px;
+  margin-top: 16px;
+  width: 700px;
   h2 {
     text-align: center;
   }
+  background-color: #D9D9D9;
+  border-radius: 140px;
+  justify-content: center;
+  padding: 70px 0 70px 0;
+}
+
+.inside-form {
+  width: 400px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.inside-form input{
+  border-radius: 8px;
 }
