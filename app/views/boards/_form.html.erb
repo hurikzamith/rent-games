@@ -1,5 +1,5 @@
-
-<%= simple_form_for(@board) do |f| %>
+<% categories = boards.map { |b| b.category }.uniq.sort %>
+<%= simple_form_for(board) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -7,7 +7,7 @@
     <%= f.input :title %>
     <%= f.input :price %>
     <%= f.input :rating %>
-    <%= f.input :category %>
+    <%= f.input :category, collection: categories, prompt: 'Select a category' %>
     <%= f.input :player_number %>
     <%= f.input :photo, as: :file %>
   </div>
@@ -18,6 +18,6 @@
   <br>
 <%# br não é boa pratica %>
   <div>
-    <%= link_to "Back to boards", board_path, class: "btn btn-dark" %>
+    <%= link_to "Back to boards", root_path, class: "btn btn-dark" %>
   </div>
 <% end %>

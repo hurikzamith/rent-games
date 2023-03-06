@@ -1,7 +1,11 @@
 class RentsController < ApplicationController
   def new
-    @rent = Rent.new
-    @board = Board.find(params[:board_id])
+    if current_user.present?
+      @rent = Rent.new
+      @board = Board.find(params[:board_id])
+    else
+      redirect_to new_user_registration_path
+    end
   end
 
   def create
