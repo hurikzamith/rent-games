@@ -2,10 +2,12 @@ class BoardsController < ApplicationController
   before_action :set_board, only: %i[update show edit destroy]
 
   def index
-    if params[:param].nil?
-      @boards = Board.all
-    else
+    if params[:query].present?
+      @boards = Board.where('title ILike ?', "%#{params[:query]}%")
+    elsif params[:param].present?
       @boards = Board.where(category: params[:param])
+    else
+      @boards = Board.all
     end
   end
 
