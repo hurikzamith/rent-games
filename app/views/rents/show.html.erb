@@ -2,8 +2,9 @@
   <% @user.rents.each do |rent| %>
     <div>
       <h3><em><%= rent.board.title %></em></h3>
-       <p><em><%= "R$:#{rent.board.price}" %></em></p>
+       <p><em><%= "Price Unit R$:#{rent.board.price}" %></em></p>
       <p>Start Date: <%= rent.start_date %></p>
       <p>End Date: <%= rent.end_date %></p>
+      <p>Total price: <%= number_to_currency((rent.end_date - rent.start_date) * rent.board.price, unit: 'R$', separator: ',', delimiter: '.') %></p>
     </div>
   <% end %>
