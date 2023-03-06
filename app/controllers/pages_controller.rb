@@ -7,6 +7,4 @@ class PagesController < ApplicationController
     # @rents = @board.user.id
     # @rents = Rent.where(user_id: @user.id, board_id: @board.id)
   end
-
-
 end
