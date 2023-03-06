@@ -1,28 +1,29 @@
-<h1>Profile</h1>
-
-
-
-<% if current_user.photo.attached? %>
-  <%= cl_image_tag(current_user.photo.key, height: 200, crop: :fill) %>
-<% else %>
-  <%= image_tag("xadrez.jpg", height: 200) %>
-  <h1>teste</h1>
-<% end %>
-
-<div>
-  <h4>User information</h4>
-  <ul>
-    <li><%= @user.first_name %></li>
-    <li><%= @user.last_name %></li>
-    <li><%= @user.email %></li>
-    <li><%= @user.address %></li>
-  </ul>
+<div class="container d-flex card align-item-center">
+  <div class="d-flex card align-item-center ">
+    <div class=" text-align-center">
+      <h1><%= "#{current_user.first_name} #{current_user.last_name}"%></h1>
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa-solid fa-gear"></i>
+        </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <%= link_to "Edit user", edit_user_registration_path, class: "dropdown-item" %>
+        <%= link_to "Delete user", user_registration_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your profile?"}, class: "dropdown-item"%>
+      </ul>
+    </div>
+  </div>
+    <div class="align-item-center">
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag(current_user.photo.key, height: 200, crop: :fill) %>
+      <% else %>
+        <%= image_tag("xadrez.jpg", height: 200) %>
+      <% end %>
+    </div>
+    <div>
+    <p>Email: <strong><%=@user.email%></strong></p>
+    <p>Adress: <strong><%=@user.address%></strong></p>
+    </div>
+  </div>
 </div>
-
-<div>
-  <h2><%= link_to "Edit user", edit_user_registration_path, class: "btn btn-warning" %></h2>
-</div>
-
-<div>
-  <h2><%= link_to "Delete user", user_registration_path, class: "btn btn-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your profile?"}%></h2>
 </div>
