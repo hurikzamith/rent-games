@@ -1,19 +1,19 @@
-<% categories = boards.map { |b| b.category }.uniq.sort %>
-<%= simple_form_for(board) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="board-inputs">
-    <%= f.input :title %>
-    <%= f.input :price %>
-    <%= f.input :rating %>
-    <%= f.input :category, collection: categories, prompt: 'Select a category' %>
-    <%= f.input :player_number %>
-    <%= f.input :photo, as: :file %>
+<div class='container d-flex user_forms'>
+  <div class='inside-form'>
+    <h2>Put your game to rent</h2>
+    <% categories = boards.map { |b| b.category }.uniq.sort %>
+    <%= simple_form_for(board) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <%= f.input :title %>
+        <%= f.input :price %>
+        <%= f.input :rating %>
+        <%= f.input :category, collection: categories, prompt: 'Select a category' %>
+        <%= f.input :player_number %>
+        <%= f.input :photo, as: :file %>
+        <%= f.button :submit, class: 'btn btn-primary w-100' %>
+    <% end %>
+    <%= link_to "Back to boards", root_path, class: "btn btn-primary mt-3" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-primary" %>
-  </div>
-  <br>
-<% end %>
+</div>
