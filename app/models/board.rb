@@ -6,4 +6,6 @@ class Board < ApplicationRecord
   validates :price, :rating, :title, :category, :player_number, :photo, presence: true
   validates :rating, numericality: { only_integer: true }, inclusion: { in: 0..5 }
 
+  include PgSearch::Model
+  pg_search_scope :search_board, against: [:title], using: { tsearch: { prefix: true } }
 end
