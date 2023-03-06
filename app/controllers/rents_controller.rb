@@ -23,6 +23,13 @@ class RentsController < ApplicationController
     end
   end
 
+  def destroy
+    rent = Rent.find(params[:id])
+    rent.destroy
+
+    redirect_to board_path(rent), status: :see_other, notice: "Rent was successfully deleted."
+  end
+
   def show
     @user = current_user
   end
