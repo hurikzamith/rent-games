@@ -6,16 +6,28 @@
       <div class='menu'>
         <h2>Categories</h2>
         <ul class='myMenu'>
-          <% boards = @boards.map { |b| b.category}.uniq %>
+          <% boards = @boards.map { |b| b.category}.uniq.sort %>
           <% boards.each do |board| %>
             <li> <%= link_to board, root_path(param: board) %> </li>
           <% end %>
         </ul>
-        <%= link_to "new Board", new_board_path, class: "btn btn-primary" if current_user.present? %>
+        <%= link_to "Clean filter", root_path, class: "btn btn-primary" %>
+        <%= link_to "New board", new_board_path, class: "btn btn-primary mt-5" if current_user.present? %>
       </div>
     </div>
 
     <div class="col-sm-10">
+
+      <div class= 'search_bar'>
+        <%= form_with url: root_path, method: :get, class: 'd-flex mt-4' do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a game" %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
       <% @boards.each do |board| %>
         <div class="card-product">
           <%= cl_image_tag board.photo.key, class: 'card_img' %>
