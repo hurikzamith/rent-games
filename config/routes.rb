@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "boards#index"
 
   get "profile", to: "pages#profile"
+  get "about", to: "pages#about"
 
   resources :boards, except: :index do
     resources :rents, only: %i[new create show]

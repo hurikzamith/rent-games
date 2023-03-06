@@ -3,4 +3,8 @@ class PagesController < ApplicationController
     @user = current_user
     @boards = Board.where(user_id: @user.id)
   end
+
+  def about
+
+  end
 end
