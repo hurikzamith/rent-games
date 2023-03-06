@@ -35,3 +35,42 @@
     </div>
   </div>
 </div>
+
+<h3>My Board Games - Collection</h3>
+
+<% @board.each do |rent| %>
+  <div class="card-product">
+    <%= cl_image_tag rent.photo.key, class: 'card_img' %>
+    <div class="card-product-infos">
+      <h2><%= link_to "#{rent.title}", board_path(rent)%></h2>
+      <p>Rating: <strong><%=rent.rating%></strong></p>
+      <p>Category: <strong><%=rent.category%></strong></p>
+      <p>Owner: <strong><%=rent.user.first_name%></strong></p>
+      <p>Number of players: <strong><%=rent.player_number%></strong></p>
+    </div>
+  </div>
+<% end %>
+
+<h3>My Board Games - Rented Out</h3>
+
+<% @user.rents.each do |rent| %>
+  <div class="card-product">
+    <%= cl_image_tag rent.board.photo.key, class: 'card_img' %>
+    <div class="card-product-infos">
+      <p>Start Date: <%= rent.start_date %></p>
+      <p>End Date: <%= rent.end_date %></p>
+    </div>
+  </div>
+<% end %>
+
+<h3>Board Games I've Rented</h3>
+
+<% @user.rents.each do |rent| %>
+  <div class="card-product">
+    <%= cl_image_tag rent.board.photo.key, class: 'card_img' %>
+    <div class="card-product-infos">
+      <p>Start Date: <%= rent.start_date %></p>
+      <p>End Date: <%= rent.end_date %></p>
+    </div>
+  </div>
+<% end %>
