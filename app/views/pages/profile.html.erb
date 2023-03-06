@@ -1,19 +1,13 @@
-<h1>Profile</h1>
-
-
 
 <% if current_user.photo.attached? %>
   <%= cl_image_tag(current_user.photo.key, height: 200, crop: :fill) %>
 <% else %>
   <%= image_tag("xadrez.jpg", height: 200) %>
-  <h1>teste</h1>
 <% end %>
 
 <div>
-  <h4>User information</h4>
   <ul>
     <li><%= @user.first_name %></li>
-    <li><%= @user.last_name %></li>
     <li><%= @user.email %></li>
     <li><%= @user.address %></li>
   </ul>
