@@ -40,7 +40,7 @@ def find_category(category_id)
   category = CATEGORY_URL.find do |categ|
     categ['id'] == category_id
   end
-  if category['name'].nil?
+  if category.nil?
     return "Others"
   else
     return category['name']
