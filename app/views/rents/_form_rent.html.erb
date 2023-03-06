@@ -3,5 +3,5 @@
 <%= simple_form_for [board, rent], data: { controller: 'flatpickr' } do |f| %>
   <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
   <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-  <%= f.submit 'Rent Board' %>
+  <%= f.submit 'Rent Board', class: "btn btn-primary" %>
 <% end %>
