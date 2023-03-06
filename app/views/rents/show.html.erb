@@ -1,27 +1,33 @@
 <div class="container py-5 h-100">
   <div class="container mt-3">
-  <h1>Rents</h1>
-  <div class="container py-5 h-100">
-    <div class="d-flex justify-content-center align-items-center h-100">
-      <div class="card" style="border-radius: 15px;">
-        <div class="card-body p-4">
-          <div class="d-flex text-black mb-1">
-            <div class="flex-shrink-0 style="border-radius: 15px;">
-            <% @user.rents.each do |rent| %>
-            </div>
-            <div class="flex-grow-1 d-flex flex-column justify-content-between ms-3">
-              <h5 class="mb-1"><%= rent.board.title %></h5>
-            <div class="d-flex justify-content-start rounded-3" style="background-color: #efefef;">
-              <div>
+    <h1>Rents</h1>
+    <div class="container py-5 h-100">
+      <div class="d-flex justify-content-center align-items-center h-100">
+            <%# <div class="d-flex text-black mb-1">
+              <div class="flex-shrink-0 style="border-radius: 15px;"> %>
+                <% @user.rents.each do |rent| %>
+                  <%# <div class="flex-grow-1 d-flex flex-column justify-content-between ms-3"> %>
+        <div class="card mx-3" style="border-radius: 15px;">
+                    <div class="card-body p-4">
+                      <div class="d-flex justify-content-between">
+                        <h5 class="mb-1"><%= rent.board.title %></h5>
+                        <%= link_to rent_path(rent), class: 'remove', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+                        <i class="fa-solid fa-trash-can"></i>
+                      </div>
+                        <%= image_tag "xadrez.jpg"  %>
+                    </div>
+                  <%# </div> %>
+                <% end %>
+              <div class="d-flex flex-column justify-content-start rounded-3 p-4" style="background-color: #efefef;">
                 <p>Price Unit <strong><%="R$:#{rent.board.price}" %></strong></p>
                 <p>Start Date: <strong><%= rent.start_date %></strong></p>
                 <p>End Date: <strong><%= rent.end_date %></strong></p>
                 <p>Total Price: <strong><%= number_to_currency((rent.end_date - rent.start_date) * rent.board.price, unit: 'R$', separator: ',', delimiter: '.') %></p></strong>
-              </div>
             </div>
-            <% end %>
-          </div>
         </div>
+              <% end %>
+            <%# </div>
+          </div> %>
       </div>
     </div>
   </div>
