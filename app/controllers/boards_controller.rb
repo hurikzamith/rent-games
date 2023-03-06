@@ -11,13 +11,14 @@ class BoardsController < ApplicationController
 
   def new
     @board = Board.new
+    @boards = Board.all
   end
 
   def create
     @board = Board.new(board_params)
     @board.user = current_user
     if @board.save
-      redirect_to boards_path
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,6 +28,7 @@ class BoardsController < ApplicationController
   end
 
   def edit
+    @boards = Board.all
   end
 
   def update

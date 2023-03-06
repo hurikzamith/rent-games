@@ -1,9 +1,9 @@
 <h1>Put your game to rent</h1>
 
-<%= render "form", board: @board %>
+<%= render "form", board: @board, boards: @boards %>
 
 <br>
 
 <div>
-  <%= link_to "Back to boards", boards_path, class: "btn btn-dark" %>
+  <%= link_to "Back to boards", root_path, class: "btn btn-dark" %>
 </div>
