@@ -38,7 +38,7 @@
 
 <h3>My Board Games - Collection</h3>
 
-<% @board.each do |rent| %>
+<% @boards.each do |rent| %>
   <div class="card-product">
     <%= cl_image_tag rent.photo.key, class: 'card_img' %>
     <div class="card-product-infos">
@@ -53,13 +53,17 @@
 
 <h3>My Board Games - Rented Out</h3>
 
-<% @user.rents.each do |rent| %>
+<% @boards.each do |board| %>
   <div class="card-product">
-    <%= cl_image_tag rent.board.photo.key, class: 'card_img' %>
+    <% board.rents.each do |board_rent| %>
+    <%= cl_image_tag board_rent.board.photo.key, class: 'card_img' %>
     <div class="card-product-infos">
-      <p>Start Date: <%= rent.start_date %></p>
-      <p>End Date: <%= rent.end_date %></p>
+      <p>Title: <%= board_rent.board.title %> </p>
+      <p>Start Date: <%= board_rent.start_date %></p>
+      <p>End Date: <%= board_rent.end_date %></p>
+      <p>Rented out by: <%= board_rent.user.first_name %></p>
     </div>
+    <% end %>
   </div>
 <% end %>
 
