@@ -6,12 +6,13 @@
       <div class='menu'>
         <h2>Categories</h2>
         <ul class='myMenu'>
-          <% boards = @boards.map { |b| b.category}.uniq %>
+          <% boards = @boards.map { |b| b.category}.uniq.sort %>
           <% boards.each do |board| %>
             <li> <%= link_to board, root_path(param: board) %> </li>
           <% end %>
         </ul>
-        <%= link_to "new Board", new_board_path, class: "btn btn-primary" if current_user.present? %>
+        <%= link_to "Clean filter", root_path, class: "btn btn-primary" %>
+        <%= link_to "New board", new_board_path, class: "btn btn-primary mt-5" if current_user.present? %>
       </div>
     </div>
 
