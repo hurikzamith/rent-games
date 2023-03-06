@@ -1,19 +1,22 @@
-<h1>Rents#new</h1>
-<p>Find me in app/views/rents/new.html.erb</p>
-
-    <!--Add board and user info! -->
-  <div>
-    <h3><%= @board.title %> </h3>
-    <%= cl_image_tag @board.photo.key, width: 150 %>
-  <p><%="Category: #{@board.category}"%></p>
-  <p><%="Preço: #{@board.price}"%></p>
-  <p><%="Rating: #{@board.rating}/5"%></p>
-  <p><%="Players Number: #{@board.player_number}"%></p>
-  <p><%="Owner: #{@board.user.first_name}"%></p>
-    <p></p>
+  <div  class="mt-3">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="card" style="width: 400px">
+        <%= cl_image_tag @board.photo.key, height: 400 %>
+        <div class="card-body">
+          <h1 class="card-title d-flex justify-content-center"><%= @board.title %></h1>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Category:</strong> <%="#{@board.category}"%></li>
+          <li class="list-group-item"><strong>Rating: </strong><%="#{@board.rating}/5"%></li>
+          <li class="list-group-item"><strong>Players Number: </strong><%="#{@board.player_number}"%></li>
+          <li class="list-group-item"><strong>Preço:  </strong><%="U$ #{@board.price}"%></li>
+        </ul>
+        <div class="card-body">
+          <%= render "form_rent", rent: @rent, board: @board %>
+          <div class="d-flex justify-content-center">
+            <%= link_to "Home", root_path, class: "btn btn-dark mx-5 mt-2" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-
-<%= render "form_rent", rent: @rent, board: @board %>
-
-<%# User = User Booking = rent / Developers = Boards %>
