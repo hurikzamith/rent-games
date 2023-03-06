@@ -1,5 +1,5 @@
-
-<%= simple_form_for(@board) do |f| %>
+<% categories = boards.map { |b| b.category }.uniq.sort %>
+<%= simple_form_for(board) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -7,8 +7,7 @@
     <%= f.input :title %>
     <%= f.input :price %>
     <%= f.input :rating %>
-    <% boards = @boards.map { |b| b.category }.uniq.sort %>
-    <%= f.input :category, collection: boards, prompt: 'Select a category' %>
+    <%= f.input :category, collection: categories, prompt: 'Select a category' %>
     <%= f.input :player_number %>
     <%= f.input :photo, as: :file %>
   </div>

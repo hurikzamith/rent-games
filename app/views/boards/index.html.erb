@@ -8,10 +8,10 @@
         <ul class='myMenu'>
           <% boards = @boards.map { |b| b.category}.uniq %>
           <% boards.each do |board| %>
-            <li> <%= link_to board, boards_path(param: board) %> </li>
+            <li> <%= link_to board, root_path(param: board) %> </li>
           <% end %>
         </ul>
-        <%= link_to "new Board", new_board_path, class: "btn btn-primary" %>
+        <%= link_to "new Board", new_board_path, class: "btn btn-primary" if current_user.present? %>
       </div>
     </div>
 
