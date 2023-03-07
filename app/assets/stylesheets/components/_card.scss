@@ -1,3 +1,10 @@
+.card-rent {
+  height: 400px;
+}
+
+.card-body {
+  padding-bottom: 0;
+}
 .card-product {
   overflow: hidden;
   height: 120px;
@@ -10,8 +17,7 @@
 }
 
 .card_img {
-  height: 100%;
-  width: 120px;
+  height: 140px;
   object-fit: cover;
 }
 
