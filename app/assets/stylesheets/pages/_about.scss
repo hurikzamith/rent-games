@@ -1,13 +1,22 @@
-.paragraph {
-  width: 700px;
-  h1 {
-    text-align: center;
-  }
-  h3 {
-    text-align: center;
-  }
+.main-container {
+  margin: 0 auto;
+  display: block;
+  width: 900px;
 }
 
-#image_about {
-  justify-content: center;
+.paragraph {
+  margin: 8px 0 8px 0;
+  padding: 4px 0 4px 0;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, .5);
+  text-align: center;
+  ul {
+    list-style: none;
+  }
+  ol {
+    list-style: none;
+  }
+  h3 {
+    color: #FFC52D;
+  }
+  color: #ffffff;
 }
