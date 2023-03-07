@@ -2,7 +2,7 @@
  <%= render 'carousel' %>
   <div class="container-menu">
     <div class="row">
-      <div class="col-sm-2">
+      <div class="col-sm-3">
         <div class='menu'>
           <h2 style="color:#ffc533">Categories</h2>
           <ul class='myMenu'>
@@ -16,13 +16,13 @@
               <%= link_to "Clean filter", root_path, class: "btn" %>
             </div>
             <div>
-              <%= link_to "New board", new_board_path, class: "btn mt-5" if current_user.present? %>
+              <%= link_to "New board", new_board_path, class: "btn mt-3" if current_user.present? %>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-sm-10">
+      <div class="col-sm-9">
 
         <div class= 'search-bar'>
           <%= form_with url: root_path, method: :get, class: 'd-flex mt-4' do %>
