@@ -1,0 +1,26 @@
+.carousel h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.carousel p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-item {
+  height: 500px;
+}
+
+.carousel-item img {
+    position: absolute;
+    object-fit: cover; 
+    top: 0;
+    left: 0;
+    min-height: 500px;
+}
