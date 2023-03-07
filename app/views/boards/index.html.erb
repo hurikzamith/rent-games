@@ -10,7 +10,7 @@
               <li> <%= link_to board, root_path(param: board) %> </li>
             <% end %>
           </ul>
-          <div class="flexbox">
+          <div class="f lexbox">
             <div>
               <%= link_to "Clean filter", root_path, class: "btn" %>
             </div>
@@ -34,7 +34,7 @@
         </div>
 
         <% @boards.each do |board| %>
-          <div class="card-product">
+          <div class="card-product mb-3">
             <%= cl_image_tag board.photo.key, class: 'card_img' %>
             <div class="card-product-infos">
               <h2><%= link_to "#{board.title}", board_path(board)%></h2>
