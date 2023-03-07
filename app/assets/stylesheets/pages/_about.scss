@@ -5,6 +5,7 @@
 }
 
 .paragraph {
+  border-radius: 10px;
   margin: 8px 0 8px 0;
   padding: 4px 0 4px 0;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, .5);
@@ -20,3 +21,11 @@
   }
   color: #ffffff;
 }
+
+#back-color-about {
+  background-color: #433723;
+}
+
+#back-about {
+  background-color: #dfdfdf;
+  }
