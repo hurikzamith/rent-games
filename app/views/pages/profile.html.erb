@@ -1,6 +1,5 @@
-
-<div class="vh-100" style="background-color: #433723">
-  <div class="container py-5 h-100">
+<div class="container py-5 h-100">
+  <h1>My Profile</h1>
     <div class="d-flex justify-content-center align-items-center h-100">
       <div class="card" style="border-radius: 15px;">
         <div class="card-body p-4">
@@ -37,47 +36,90 @@
   </div>
 </div>
 
-<h3>My Board Games - Collection</h3>
-
-<% @boards.each do |rent| %>
-  <div class="card-product">
-    <%= cl_image_tag rent.photo.key, class: 'card_img' %>
-    <div class="card-product-infos">
-      <h2><%= link_to "#{rent.title}", board_path(rent)%></h2>
-      <p>Rating: <strong><%=rent.rating%></strong></p>
-      <p>Category: <strong><%=rent.category%></strong></p>
-      <p>Owner: <strong><%=rent.user.first_name%></strong></p>
-      <p>Number of players: <strong><%=rent.player_number%></strong></p>
-    </div>
-  </div>
-<% end %>
-
-<h3>My Board Games - Rented Out</h3>
-
-<% @boards.each do |board| %>
-  <% if board.rents.exists? %>
-    <div class="card-product">
-      <% board.rents.each do |board_rent| %>
-      <%= cl_image_tag board_rent.board.photo.key, class: 'card_img' %>
-      <div class="card-product-infos">
-        <p>Title: <%= board_rent.board.title %> </p>
-        <p>Start Date: <%= board_rent.start_date %></p>
-        <p>End Date: <%= board_rent.end_date %></p>
-        <p>Rented out by: <%= board_rent.user.first_name %></p>
+<div class="container h-100">
+  <h3>My Board Games - Collection</h3>
+      <div class="container mt-3">
+          <div class="d-flex justify-content-center">
+            <% @boards.each do |rent| %>
+              <div class="card mx-3" style="border-radius: 15px;">
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between">
+                    <h5 class="mb-1"><%= rent.title%></h5>
+                  </div>
+                  <div class="d-flex flex-column rounded-4 align-items-center "><%= cl_image_tag rent.photo.key, class: 'card_img' %></div>
+                </div>
+                <div class="d-flex flex-column justify-content-start rounded-4 p-3" style="background-color: #efefef;">
+                  <p>Rating: <strong><%=rent.rating%></strong></p>
+                  <p>Category: <strong><%=rent.category%></strong></p>
+                  <p>Owner: <strong><%=rent.user.first_name%></strong></p>
+                  <p>Number of players: <strong><%=rent.player_number%></strong></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <% end %>
-    </div>
-  <% end %>
-<% end %>
-
-<h3>Board Games I've Rented</h3>
-
-<% @user.rents.each do |rent| %>
-  <div class="card-product">
-    <%= cl_image_tag rent.board.photo.key, class: 'card_img' %>
-    <div class="card-product-infos">
-      <p>Start Date: <%= rent.start_date %></p>
-      <p>End Date: <%= rent.end_date %></p>
     </div>
   </div>
-<% end %>
+</div>
+
+
+<div class="container h-100">
+  <h3>My Board Games - Rented Out</h3>
+    <div class="container mt-3">
+          <div class="d-flex justify-content-center">
+          <% @boards.each do |board| %>
+          <% if board.rents.exists? %>
+            <% board.rents.each do |board_rent| %>
+              <div class="card mx-3" style="border-radius: 15px;">
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between">
+                    <h5 class="mb-1"><%= board_rent.board.title %></h5>
+                  </div>
+                  <div class="d-flex flex-column rounded-4 align-items-center "><%= cl_image_tag board_rent.board.photo.key, class: 'card_img' %></div>
+                </div>
+                <div class="d-flex flex-column justify-content-start rounded-4 p-3" style="background-color: #efefef;">
+                  <p>Start Date: <strong><%= board_rent.start_date %></strong></p>
+                  <p>End Date: <strong><%= board_rent.end_date %></strong></p>
+                  <p>Rented out by: <strong><%= board_rent.user.first_name %></strong></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container py-2 h-100">
+  <h3>Board Games I've Rented</h3>
+    <div class="container mt-3">
+          <div class="d-flex justify-content-center">
+            <% @user.rents.each do |rent| %>
+              <div class="card mx-3" style="border-radius: 15px;">
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between">
+                    <h5 class="mb-1"><%= rent.board.title %></h5>
+                  </div>
+                  <div class="d-flex flex-column rounded-4 align-items-center "><%= cl_image_tag rent.board.photo.key, class: 'card_img' %></div>
+                </div>
+                <div class="d-flex flex-column justify-content-start rounded-4 p-3" style="background-color: #efefef;">
+                  <p>Price Unit <strong><%="R$:#{rent.board.price}" %></strong></p>
+                  <p>Start Date: <strong><%= rent.start_date %></strong></p>
+                  <p>End Date: <strong><%= rent.end_date %></strong></p>
+                  <p>Total Price: <strong><%= number_to_currency((rent.end_date - rent.start_date) * rent.board.price, unit: 'R$', separator: ',', delimiter: '.') %></p></strong>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
