@@ -86,6 +86,7 @@
                     <p>Start Date: <strong><%= board_rent.start_date %></strong></p>
                     <p>End Date: <strong><%= board_rent.end_date %></strong></p>
                     <p>Rented out by: <strong><%= board_rent.user.first_name %></strong></p>
+                    <p>Total: <strong><%= number_to_currency((board_rent.end_date - board_rent.start_date) * board_rent.board.price) %></strong></p>
                   </div>
                 </div>
               </div>
