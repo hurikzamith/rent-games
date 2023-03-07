@@ -50,24 +50,4 @@
     </div>
 
   </div>
-
-    <div class="footer">
-
-      <div class="footer-links">
-        <div class= 'search_bar'>
-          <%= form_with url: root_path, method: :get, class: 'd-flex mt-4' do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Find a game" %>
-            <%= submit_tag "Search", class: "btn btn-primary" %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="footer-copyright">
-    This footer is made with <<i class="fa-solid fa-gamepad"></i>></i> at Le Wagon
-      </div>
-
-    </div>
   </div>
