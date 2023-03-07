@@ -33,6 +33,11 @@
   opacity: 70%;
 }
 
+// todo
+#change-color-rover:hover {
+  color:#fff;
+}
+
 .btn:active {
   color:#433723;
   background-color:#ffa200;
@@ -70,6 +75,7 @@
   border-radius: 10px 0 0 10px;
 }
 
+
 .menu {
   overflow-y: scroll;
   height: 100vh;
@@ -91,4 +97,9 @@
 .menu::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
+
+.card-product{
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, .7);
+
 }

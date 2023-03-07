@@ -1,12 +1,12 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <div class="d-flex align-items-center gap-5 text-dark">
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <i class="fa-solid fa-chess"></i>
+      <%= link_to root_path, class: "navbar-brand", id:"change-color-rover" do %>
+        <i class="fa-solid fa-chess" id="change-color-rover"></i>
         <strong>RentGames</strong>
-        <i class="fa-solid fa-dice-d20"></i>
-        <%= link_to "Home", root_path, class: "nav-link" %>
-        <%= link_to "About us", about_path, class: "nav-link" %>
+        <i class="fa-solid fa-dice-d20" id="change-color-rover"></i>
+        <%= link_to "Home", root_path, class: "nav-link", id:"change-color-rover" %>
+        <%= link_to "About us", about_path, class: "nav-link", id:"change-color-rover" %>
       <% end %>
       <% if user_signed_in? %>
           <%= link_to "Home", root_path, class: "nav-link" %>
