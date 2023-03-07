@@ -19,7 +19,8 @@
 
 .carousel-item img {
     position: absolute;
-    object-fit: cover; 
+    object-fit: cover;
+    object-position: bottom;
     top: 0;
     left: 0;
     min-height: 500px;
