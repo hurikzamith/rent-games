@@ -1,5 +1,8 @@
 .menu {
   margin: 15px;
+  background-color: #2e2619;
+  border-radius: 10px;
+  text-align: center;
 }
 
 
@@ -13,11 +16,18 @@
 .myMenu li a{
   padding: 12px;
   text-decoration: none;
-  color: #ffc533;
+  color: #ffffff;
   display: block;
 }
 
  .myMenu li a:hover {
-  background-color: #433723;
+  background-color: #ffffff;
+  color: #000000;
+  opacity: 0.5;
+ }
+
+ .myMenu li a:active {
+  background-color: #ffbf1c;
+  color:#000000;
   opacity: 0.5;
  }
