@@ -12,10 +12,10 @@
           </ul>
           <div class="flexbox">
             <div>
-              <%= link_to "Clean filter", root_path, class: "btn btn-primary" %>
+              <%= link_to "Clean filter", root_path, class: "btn" %>
             </div>
             <div>
-              <%= link_to "New board", new_board_path, class: "btn btn-primary mt-5" if current_user.present? %>
+              <%= link_to "New board", new_board_path, class: "btn mt-5" if current_user.present? %>
             </div>
           </div>
         </div>
@@ -23,13 +23,13 @@
 
       <div class="col-sm-10">
 
-        <div class= 'search_bar'>
+        <div class= 'search-bar'>
           <%= form_with url: root_path, method: :get, class: 'd-flex mt-4' do %>
             <%= text_field_tag :query,
               params[:query],
-              class: "form-control",
+              class: "form-control search-bar-input",
               placeholder: "Find a game" %>
-            <%= submit_tag "Search", class: "btn btn-primary" %>
+            <%= submit_tag "Search", class: "btn", id:"btn-search" %>
           <% end %>
         </div>
 

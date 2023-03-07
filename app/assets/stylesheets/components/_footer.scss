@@ -24,3 +24,55 @@
 .footer .fa-gamepad {
   color: #cfd233;
 }
+
+#btn-search-fot {
+  background-color: #433723;
+  border-radius: 0 10px 10px 0;
+  color: #fff;
+  border:none;
+  opacity: 85%;
+}
+
+.form-control {
+  border-radius: 10px 0 0 10px;
+}
+
+footer {
+  background-color: #0000;
+  color: #fff;
+  padding: 50px 0;
+}
+
+footer h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+footer p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+footer ul.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul.contact-list li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+footer ul.contact-list li i {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+footer hr {
+  border-top: 1px solid #ddd;
+}
+
+footer p.text-center {
+  font-size: 14px;
+  margin-top: 20px;
+}

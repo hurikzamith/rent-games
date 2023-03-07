@@ -1,12 +1,12 @@
 // Specific CSS for your home-page
-.search_bar {
+.search-bar {
   width: 70%;
-  opacity: 50%;
+  opacity: 100%;
   border-radius: 10px;
 }
 
-.search_bar:hover {
-  opacity: 100%;
+.search-bar:hover {
+  opacity: 70%;
   transition-duration: 0.3s;
 }
 
@@ -19,10 +19,53 @@
 }
 
 .btn {
-  background-color: #433723;
-  font-family: 'Courier New', Courier, monospace;
+  background-color: #ffa200;
+  border-radius: 10px;
+  color: #fff;
+  border:none;
+  opacity: 85%;
+}
+
+
+.btn:hover {
+  background-color:#fff;
+  color:#ffa200;
+  opacity: 70%;
+}
+
+.btn:active {
+  color:#433723;
+  background-color:#ffa200;
 }
 
 .container-profile {
   background-color: #433723;
+}
+
+#btn-nav {
+  background-color: #433723;
+  border-radius: 10px;
+  color: #fff;
+  border:none;
+  opacity: 85%;
+}
+
+#btn-search{
+  background-color:#ffa200;
+  border-radius: 0 10px 10px 0;
+  color: #fff;
+  border:none;
+  opacity: 85%;
+}
+
+#btn-search-fot {
+  background-color: #433723;
+  border-radius: 0 10px 10px 0;
+  color: #fff;
+  border:none;
+  opacity: 85%;
+}
+
+.search-bar-input {
+  border-radius: 10px 0 0 10px;
 }
